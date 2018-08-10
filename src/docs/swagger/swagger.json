@@ -1,0 +1,4875 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "0.0.1",
+    "title": "浙商国际供应链后台接口",
+    "termsOfService": "http://33.cn/"
+  },
+  "host": "localhost:8888",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "后台产品管理",
+      "description": "产品审核"
+    },
+    {
+      "name": "后台公告管理",
+      "description": "公告管理"
+    },
+    {
+      "name": "后台发行清算",
+      "description": "发行清算"
+    },
+    {
+      "name": "后台文件下载",
+      "description": "文件下载查看"
+    },
+    {
+      "name": "后台登录管理",
+      "description": "后台系统登录"
+    },
+    {
+      "name": "后台认证管理",
+      "description": "个人认证,企业认证,企业权限"
+    },
+    {
+      "name": "后台财务入金管理",
+      "description": "入金管理"
+    },
+    {
+      "name": "后台财务出入金Excel",
+      "description": "Excel导出"
+    },
+    {
+      "name": "后台财务出金管理",
+      "description": "出金管理"
+    },
+    {
+      "name": "后台身份管理",
+      "description": "用户,角色,权限管理"
+    }
+  ],
+  "paths": {
+    "/admin/backauthority/assign": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限分配",
+        "operationId": "assignUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idListBo",
+            "description": "idListBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/一对多键参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backauthority/create": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限新增",
+        "operationId": "createUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backAuthorityBo",
+            "description": "backAuthorityBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台权限"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backauthority/delete": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限删除",
+        "operationId": "deleteUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "ids",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backauthority/page": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限分页",
+        "operationId": "pageUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "queryPageBo",
+            "description": "queryPageBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backauthority/update": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限更新",
+        "operationId": "updateUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backAuthorityBo",
+            "description": "backAuthorityBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台权限"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backauthority/view": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "权限查看(通过roleId)",
+        "operationId": "viewUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "roleId",
+            "description": "roleId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/assign": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色分配",
+        "operationId": "assignUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idListBo",
+            "description": "idListBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/一对多键参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/create": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色新增",
+        "operationId": "createUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backRoleBo",
+            "description": "backRoleBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台角色"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/delete": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色删除",
+        "operationId": "deleteUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "ids",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/page": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色分页",
+        "operationId": "pageUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "queryPageBo",
+            "description": "queryPageBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/update": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色更新",
+        "operationId": "updateUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backRoleBo",
+            "description": "backRoleBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台角色"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backrole/view": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "角色查看(通过userId)",
+        "operationId": "viewUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "in": "body",
+            "name": "userId",
+            "description": "userId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backuser/create": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "用户新增",
+        "operationId": "createUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backUserBo",
+            "description": "backUserBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台用户"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backuser/delete": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "用户删除",
+        "operationId": "deleteUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "ids",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backuser/page": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "用户分页",
+        "operationId": "pageUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "queryPageBo",
+            "description": "queryPageBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/admin/backuser/update": {
+      "post": {
+        "tags": [
+          "后台身份管理"
+        ],
+        "summary": "用户更新",
+        "operationId": "updateUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backUserBo",
+            "description": "backUserBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台用户"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterprise/do/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业认证审核确认",
+        "operationId": "doAuditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterprise/no/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业认证审核拒绝",
+        "operationId": "noAuditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterprise/page/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业认证待审核分页",
+        "operationId": "pageAuditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterprise/page/audited": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业认证已审核分页",
+        "operationId": "pageAuditedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterpriserole/do/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业角色认证审核确认",
+        "operationId": "doAuditUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterpriserole/no/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业角色认证审核拒绝",
+        "operationId": "noAuditUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterpriserole/page/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业角色认证待审核分页",
+        "operationId": "pageAuditUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/enterpriserole/page/audited": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "企业角色认证已审核分页",
+        "operationId": "pageAuditedUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/user/do/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "个人认证审核确认",
+        "operationId": "doAuditUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/user/no/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "个人认证审核拒绝",
+        "operationId": "noAuditUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/user/page/audit": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "个人认证待审核分页",
+        "operationId": "pageAuditUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/auth/user/page/audited": {
+      "post": {
+        "tags": [
+          "后台认证管理"
+        ],
+        "summary": "个人认证已审核分页",
+        "operationId": "pageAuditedUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryTimeBo",
+            "description": "pageQueryTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/inaudit": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "入金待审核Excel导出",
+        "operationId": "inauditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/inaudited": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "入金已审核Excel导出",
+        "operationId": "inauditedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/intransfer": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "入金待划拔Excel导出",
+        "operationId": "intransferUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/intransfered": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "入金已划拔Excel导出",
+        "operationId": "intransferedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/outaudit1": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "出金待初审Excel导出",
+        "operationId": "outaudit1UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/outaudit1ed": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "出金已初审Excel导出",
+        "operationId": "outaudit1edUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/outaudit2": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "出金待复审Excel导出",
+        "operationId": "outaudit2UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyflow/excel/outaudit2ed": {
+      "post": {
+        "tags": [
+          "后台财务出入金Excel"
+        ],
+        "summary": "出金已复审Excel导出",
+        "operationId": "outaudit2edUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "type": "string",
+              "format": "byte"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/do/inaudit": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金审核同意",
+        "operationId": "doInauditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/do/inrefunded": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金退款审核(同意)",
+        "operationId": "doInrefundedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/do/intransfer": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金划拔",
+        "operationId": "doIntransferUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/no/inaudit": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金审核拒绝",
+        "operationId": "noInauditUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/no/intransfer": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金退款",
+        "operationId": "noIntransferUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/inaudit": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金待审核分页",
+        "operationId": "inauditUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/inaudited": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金已审核分页",
+        "operationId": "inauditedUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/inrefund": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金退款待审核分页",
+        "operationId": "inrefundUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/inrefunded": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金退款已审核分页",
+        "operationId": "inrefundedUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/intransfer": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金待划拔分页",
+        "operationId": "intransferUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyinflow/page/intransfered": {
+      "post": {
+        "tags": [
+          "后台财务入金管理"
+        ],
+        "summary": "入金已划拔分页",
+        "operationId": "intransferedUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageTimeBo",
+            "description": "pageTimeBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/时间分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/do/outaudit1": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金初审同意",
+        "operationId": "dooutaudit1UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/do/outaudit2": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金复审同意",
+        "operationId": "dooutaudit2UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/no/outaudit1": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金初审拒绝",
+        "operationId": "nooutaudit1UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/no/outaudit2": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金复审拒绝",
+        "operationId": "nooutaudit2UsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/page/outaudit1": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金待初审分页",
+        "operationId": "outaudit1UsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/page/outaudit1ed": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金已初审分页",
+        "operationId": "outaudit1edUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/page/outaudit2": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金待复审分页",
+        "operationId": "outaudit2UsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/bankmoneyoutflow/page/outaudit2ed": {
+      "post": {
+        "tags": [
+          "后台财务出金管理"
+        ],
+        "summary": "出金已复审分页",
+        "operationId": "outaudit2edUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/create": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告新增",
+        "operationId": "createUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backBoradBo",
+            "description": "backBoradBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台公告"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/delete": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告删除",
+        "operationId": "deleteUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ids",
+            "description": "ids",
+            "required": true,
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/get": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告查询",
+        "operationId": "getUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/page": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告分页",
+        "operationId": "pageUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/publish": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告发布",
+        "operationId": "publishUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/revoke": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告撤销",
+        "operationId": "revokeUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "id",
+            "description": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/board/update": {
+      "post": {
+        "tags": [
+          "后台公告管理"
+        ],
+        "summary": "公告更新",
+        "operationId": "updateUsingPOST_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backBoradBo",
+            "description": "backBoradBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台公告"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/buydetail": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "认购明细",
+        "operationId": "buydetailUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "pageQueryBo",
+            "description": "pageQueryBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/关键字分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/do/clear": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "清算成功",
+        "operationId": "doClearUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/list/release": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "发行机构下拉框",
+        "operationId": "listReleaseUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/no/clear": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "清算失败",
+        "operationId": "noClearUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/page/auditflow": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "清算审批记录",
+        "operationId": "pageAuditFlowUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/page/clear": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "待清算产品分页",
+        "operationId": "pageClearUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/理财产品分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/page/market": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "市场管理",
+        "operationId": "pageMarketUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/理财产品分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/cash/view": {
+      "post": {
+        "tags": [
+          "后台发行清算"
+        ],
+        "summary": "查看待清算产品详情",
+        "operationId": "viewUsingPOST_3",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productId",
+            "description": "productId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/download/file/{id}": {
+      "get": {
+        "tags": [
+          "后台文件下载"
+        ],
+        "summary": "downloadFile",
+        "operationId": "downloadFileUsingGET",
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Resource"
+            }
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "后台登录管理"
+        ],
+        "summary": "登录",
+        "operationId": "loginUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "backUserBo",
+            "description": "backUserBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/后台用户"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/logout": {
+      "post": {
+        "tags": [
+          "后台登录管理"
+        ],
+        "summary": "登出",
+        "operationId": "logoutUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/do/audit": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "产品审核确认",
+        "operationId": "doAuditUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/list/board": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "产品列表(1.发行公告/2.兑付公告)",
+        "operationId": "listBoardUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "boardType",
+            "description": "boardType",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/no/audit": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "产品审核拒绝",
+        "operationId": "noAuditUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "idValueBo",
+            "description": "idValueBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/键值对参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/page/audit": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "产品待审核分页",
+        "operationId": "pageAuditUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/理财产品审核分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/page/audited": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "产品已审核分页",
+        "operationId": "pageAuditedUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "bo",
+            "description": "bo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/理财产品审核分页参数"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/product/view": {
+      "post": {
+        "tags": [
+          "后台产品管理"
+        ],
+        "summary": "查看产品详情",
+        "operationId": "viewUsingPOST_2",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "productId",
+            "description": "productId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/reset": {
+      "post": {
+        "tags": [
+          "后台登录管理"
+        ],
+        "summary": "密码重置",
+        "operationId": "resetUsingPOST",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "*/*"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "passwordBo",
+            "description": "passwordBo",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/用户密码"
+            }
+          },
+          {
+            "name": "token",
+            "in": "header",
+            "description": "token",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/ResponseResult"
+            }
+          },
+          "201": {
+            "description": "Created"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "definitions": {
+    "File": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "absoluteFile": {
+          "$ref": "#/definitions/File"
+        },
+        "absolutePath": {
+          "type": "string"
+        },
+        "canonicalFile": {
+          "$ref": "#/definitions/File"
+        },
+        "canonicalPath": {
+          "type": "string"
+        },
+        "directory": {
+          "type": "boolean"
+        },
+        "file": {
+          "type": "boolean"
+        },
+        "freeSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "hidden": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        },
+        "parent": {
+          "type": "string"
+        },
+        "parentFile": {
+          "$ref": "#/definitions/File"
+        },
+        "path": {
+          "type": "string"
+        },
+        "totalSpace": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "usableSpace": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "File"
+    },
+    "InputStream": {
+      "type": "object",
+      "title": "InputStream"
+    },
+    "Resource": {
+      "type": "object",
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "file": {
+          "$ref": "#/definitions/File"
+        },
+        "filename": {
+          "type": "string"
+        },
+        "inputStream": {
+          "$ref": "#/definitions/InputStream"
+        },
+        "open": {
+          "type": "boolean"
+        },
+        "readable": {
+          "type": "boolean"
+        },
+        "uri": {
+          "$ref": "#/definitions/URI"
+        },
+        "url": {
+          "$ref": "#/definitions/URL"
+        }
+      },
+      "title": "Resource"
+    },
+    "ResponseResult": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "data": {
+          "type": "object"
+        },
+        "message": {
+          "type": "string"
+        },
+        "success": {
+          "type": "boolean"
+        }
+      },
+      "title": "ResponseResult"
+    },
+    "URI": {
+      "type": "object",
+      "properties": {
+        "absolute": {
+          "type": "boolean"
+        },
+        "authority": {
+          "type": "string"
+        },
+        "fragment": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "opaque": {
+          "type": "boolean"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "query": {
+          "type": "string"
+        },
+        "rawAuthority": {
+          "type": "string"
+        },
+        "rawFragment": {
+          "type": "string"
+        },
+        "rawPath": {
+          "type": "string"
+        },
+        "rawQuery": {
+          "type": "string"
+        },
+        "rawSchemeSpecificPart": {
+          "type": "string"
+        },
+        "rawUserInfo": {
+          "type": "string"
+        },
+        "scheme": {
+          "type": "string"
+        },
+        "schemeSpecificPart": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URI"
+    },
+    "URL": {
+      "type": "object",
+      "properties": {
+        "authority": {
+          "type": "string"
+        },
+        "content": {
+          "type": "object"
+        },
+        "defaultPort": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "file": {
+          "type": "string"
+        },
+        "host": {
+          "type": "string"
+        },
+        "path": {
+          "type": "string"
+        },
+        "port": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "query": {
+          "type": "string"
+        },
+        "ref": {
+          "type": "string"
+        },
+        "userInfo": {
+          "type": "string"
+        }
+      },
+      "title": "URL"
+    },
+    "一对多键参数": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "主id"
+        },
+        "ids": {
+          "type": "array",
+          "description": "从ids",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "一对多键参数",
+      "description": "树状结构，如:用于角色更新"
+    },
+    "关键字分页参数": {
+      "type": "object",
+      "properties": {
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        },
+        "searchKey": {
+          "type": "string",
+          "description": "关键字"
+        }
+      },
+      "title": "关键字分页参数"
+    },
+    "关键字时间分页参数": {
+      "type": "object",
+      "properties": {
+        "beginDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "开始日期"
+        },
+        "endDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "结束日期"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        },
+        "searchKey": {
+          "type": "string",
+          "description": "关键字"
+        }
+      },
+      "title": "关键字时间分页参数"
+    },
+    "分页参数": {
+      "type": "object",
+      "properties": {
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        }
+      },
+      "title": "分页参数"
+    },
+    "后台公告": {
+      "type": "object",
+      "properties": {
+        "content": {
+          "type": "string",
+          "description": "公告内容"
+        },
+        "endTime": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "结束时间"
+        },
+        "financeProductId": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "产品id"
+        },
+        "financeProductName": {
+          "type": "string",
+          "description": "产品名称"
+        },
+        "id": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "公告id"
+        },
+        "institution": {
+          "type": "string",
+          "example": "1,2,3",
+          "description": "发布机构(1:\"核心企业\",2:\"上游企业\",3:\"担保机构\",4:\"托管机构\",5:\"发行机构\",6:\"投资机构\")"
+        },
+        "startTime": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "开始时间"
+        },
+        "status": {
+          "type": "string",
+          "example": 1,
+          "description": "公告状态(0:\"公告已保存\",1:\"公告已发布\",2:\"公告已撤销\")",
+          "enum": [
+            "公告已保存",
+            "公告已发布",
+            "公告已撤销"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "description": "公告标题"
+        },
+        "type": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "公告类型(1.发行公告,2.兑付公告)"
+        }
+      },
+      "title": "后台公告"
+    },
+    "后台权限": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "权限id"
+        },
+        "name": {
+          "type": "string",
+          "description": "权限名称"
+        }
+      },
+      "title": "后台权限"
+    },
+    "后台用户": {
+      "type": "object",
+      "properties": {
+        "password": {
+          "type": "string",
+          "example": "test",
+          "description": "密码"
+        },
+        "username": {
+          "type": "string",
+          "example": "test",
+          "description": "用户名"
+        }
+      },
+      "title": "后台用户"
+    },
+    "后台角色": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "角色id"
+        },
+        "name": {
+          "type": "string",
+          "description": "角色名称"
+        }
+      },
+      "title": "后台角色"
+    },
+    "时间分页参数": {
+      "type": "object",
+      "properties": {
+        "beginDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "开始日期"
+        },
+        "endDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "结束日期"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        }
+      },
+      "title": "时间分页参数"
+    },
+    "理财产品分页参数": {
+      "type": "object",
+      "properties": {
+        "maxRaiseEnd": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "募集结束时间结点"
+        },
+        "maxRaiseStart": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "募集开始时间结点"
+        },
+        "minRaiseEnd": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "募集结束时间起点"
+        },
+        "minRaiseStart": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "募集开始时间起点"
+        },
+        "name": {
+          "type": "string",
+          "description": "产品名称"
+        },
+        "no": {
+          "type": "string",
+          "description": "产品代码"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        },
+        "releaseInstitution": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "企业id"
+        },
+        "status": {
+          "type": "string",
+          "example": 0,
+          "description": "产品状态(0:已撤销\",1:待担保\",2:待托管\",3:担保被拒绝\",4:托管被拒绝\",5:待审核\",6:审核拒绝\",7:审核通过\",8:待认购\",9:认购中\",10:等待清算\",11:发行成功\",12:发行失败\",13:已完成兑付\")",
+          "enum": [
+            "已撤销",
+            "待担保",
+            "待托管",
+            "担保被拒绝",
+            "托管被拒绝",
+            "待审核",
+            "审核拒绝",
+            "审核通过",
+            "待认购",
+            "认购中",
+            "等待清算",
+            "发行成功",
+            "发行失败",
+            "已完成兑付"
+          ]
+        }
+      },
+      "title": "理财产品分页参数"
+    },
+    "理财产品审核分页参数": {
+      "type": "object",
+      "properties": {
+        "beginDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305000,
+          "description": "开始日期"
+        },
+        "endDate": {
+          "type": "integer",
+          "format": "int64",
+          "example": 1532426305163,
+          "description": "结束日期"
+        },
+        "name": {
+          "type": "string",
+          "description": "产品名称"
+        },
+        "owner": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "持有者id"
+        },
+        "pageNum": {
+          "type": "integer",
+          "format": "int32",
+          "example": 1,
+          "description": "起始页"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "example": 10,
+          "description": "分页大小"
+        }
+      },
+      "title": "理财产品审核分页参数"
+    },
+    "用户密码": {
+      "type": "object",
+      "properties": {
+        "oldPassword": {
+          "type": "string",
+          "example": "test",
+          "description": "原密码"
+        },
+        "password": {
+          "type": "string",
+          "example": "test",
+          "description": "新密码"
+        }
+      },
+      "title": "用户密码"
+    },
+    "键值对参数": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "example": "7a45ef1e8f1c11e8b6f300163e0627d1",
+          "description": "对象id"
+        },
+        "value": {
+          "type": "string",
+          "description": "对象value"
+        }
+      },
+      "title": "键值对参数",
+      "description": "更新记录的单个字段"
+    }
+  }
+}
