@@ -35,3 +35,5 @@ See `target/asciidoc/html5/index.html` to check the generated HTML report.
 
 https://github.com/Swagger2Markup/swagger2markup-maven-project-template
 http://swagger2markup.github.io/swagger2markup/1.3.1/#_swagger2markup_properties
+
+https://app.swaggerhub.com/home(导出yaml)
